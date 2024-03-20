@@ -6,3 +6,6 @@ Main use case is for fiddling with GitHub permissions, workflows, integration, a
 
 ## Using Deploy Keys
 This heading was added, committed, pushed using a GitHub Deploy Key. Woot.
+
+## Manual test-case using PAT
+This heading was added, committed, pushed using a GitHub fine-grained PAT in the Push command.
