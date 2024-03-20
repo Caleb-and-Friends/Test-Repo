@@ -3,3 +3,6 @@ Repo for tinkering
 
 ## Overview
 Main use case is for fiddling with GitHub permissions, workflows, integration, and syntax. Some code might sneak in too though :)
+
+## Using Deploy Keys
+This heading was added, committed, pushed using a GitHub Deploy Key. Woot.
