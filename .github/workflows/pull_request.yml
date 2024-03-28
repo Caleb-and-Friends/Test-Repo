@@ -1,0 +1,27 @@
+# docs: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+# This is the top-level workflow to run on all pull-requests
+name: Pull Request
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  # Look for any files called error
+  err_file_check:
+    name: Error File Check
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout RTL repo
+        uses: actions/checkout@v4
+
+      - name: Run Script
+        run: |
+          set -e
+          file_count=$(find $GITHUB_WORKSPACE/ -type f -name "*error*")
+          if [[ $file_count -gt 0 ]]; then
+            echo "Found error files"
+            exit 1
+          fi
+          echo "Did not find any error files"
