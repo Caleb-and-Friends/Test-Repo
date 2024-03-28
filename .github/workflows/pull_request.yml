@@ -19,7 +19,7 @@ jobs:
       - name: Run Script
         run: |
           set -e
-          file_count=$(find $GITHUB_WORKSPACE/ -type f -name "*error*")
+          file_count=$(find $GITHUB_WORKSPACE/ -type f -name "*error*" | wc -l)
           if [[ $file_count -gt 0 ]]; then
             echo "Found error files"
             exit 1
