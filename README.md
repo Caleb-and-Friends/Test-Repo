@@ -12,3 +12,4 @@ This heading was added, committed, pushed using a GitHub fine-grained PAT in the
 
 ## Features
 - Feature0: Testing Pull Request workflow
+- FATAL: This is a test
