@@ -21,8 +21,9 @@ jobs:
       - name: Run Script
         run: |
           set -e
-          for skippers in ${{ env.actors }}; do
-            if [[ ${{ github.actor }} == "${skippers}" ]]; then
+          skippers=${{ env.actors }}
+          for skipper in "${skippers[@]}"; do
+            if [[ ${{ github.actor }} == "${skipper}" ]]; then
               exit 0
             fi
           done
