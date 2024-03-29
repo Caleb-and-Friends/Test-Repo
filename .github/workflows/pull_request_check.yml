@@ -12,6 +12,9 @@ jobs:
   err_file_check:
     name: Error File Check
     runs-on: ubuntu-22.04
+    env:
+      myvar: ( "calebofearth" "blarg" )
+    if: ${{ contains( env.myvar, github.actor ) }}
     steps:
       - name: Checkout RTL repo
         uses: actions/checkout@v4
