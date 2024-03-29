@@ -24,6 +24,7 @@ jobs:
           skippers=${{ env.actors }}
           for skipper in "${skippers[@]}"; do
             if [[ ${{ github.actor }} == "${skipper}" ]]; then
+              echo "GitHub actor matches ${skipper}, skipping job"
               exit 0
             fi
           done
