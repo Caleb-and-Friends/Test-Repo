@@ -7,15 +7,12 @@ on:
   workflow_dispatch:
   pull_request:
 
-env:
-  myvar: ( "calebofearth" "blarg" )
-
 jobs:
   # Look for any files called error
   err_file_check:
     name: Error File Check
     runs-on: ubuntu-22.04
-    if: ${{ contains( ( "calebofearth" "blarg" ), github.actor ) }}
+    if: ${{ github.actor == "calebofearth" || github.actor == "blarg" }}
     steps:
       - name: Checkout RTL repo
         uses: actions/checkout@v4
