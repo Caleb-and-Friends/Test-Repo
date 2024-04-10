@@ -14,6 +14,9 @@ jobs:
   fatal_readme_check:
     name: Fatal README Check
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        keywords: ["FATAL" "DEADLY"]
     steps:
       - name: Checkout RTL repo
         uses: actions/checkout@v4
@@ -21,12 +24,12 @@ jobs:
       - name: Run Script
         run: |
           set -e
-          fatal_count=$(grep -c FATAL $GITHUB_WORKSPACE/README.md || exit 0)
+          fatal_count=$(grep -c ${{ matrix.keywords }} $GITHUB_WORKSPACE/README.md || exit 0)
           if [[ $fatal_count -gt 0 ]]; then
-            echo "Found FATAL in README"
+            echo "Found ${{ matrix.keywords }} in README"
             exit 1
           fi
-          echo "Did not find FATAL in README"
+          echo "Did not find ${{ matrix.keywords }} in README"
   verify:
     name: Verify
     runs-on: ubuntu-22.04
