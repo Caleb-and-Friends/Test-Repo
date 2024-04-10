@@ -42,4 +42,4 @@ jobs:
         if: needs.fatal_readme_check.result == 'success'
         run: |
           echo "Good [ ${{ needs.fatal_readme_check.result }}]"
-          exit 1
+          exit 0
