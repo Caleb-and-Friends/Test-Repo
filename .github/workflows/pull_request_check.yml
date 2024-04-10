@@ -25,3 +25,5 @@ jobs:
             exit 1
           fi
           echo "Did not find any error files"
+  other:
+    uses: ./.github/workflows/other_check.yml
