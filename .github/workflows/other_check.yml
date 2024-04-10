@@ -34,12 +34,12 @@ jobs:
     if: ${{ !cancelled() }}
     steps:
       - name: Print Bad
-        if: ${{ needs.fatal_readme_check.result != success }}
+        if: ${{ needs.fatal_readme_check.result != "success" }}
         run: |
           echo "Bad [ ${{ needs.fatal_readme_check.result }}]"
           exit 1
       - name: Print Good
-        if: ${{ needs.fatal_readme_check.result == success }}
+        if: ${{ needs.fatal_readme_check.result == "success" }}
         run: |
           echo "Good [ ${{ needs.fatal_readme_check.result }}]"
           exit 1
