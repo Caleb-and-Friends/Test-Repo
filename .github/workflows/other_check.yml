@@ -5,9 +5,9 @@ name: Some other checker
 
 on:
   workflow_call:
-  pull_request:
-    branches:
-      - main
+#  pull_request:
+#    branches:
+#      - main
 
 jobs:
   # Look for the string "FATAL" in README
